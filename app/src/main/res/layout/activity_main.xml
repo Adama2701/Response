@@ -12,7 +12,8 @@
     tools:context="com.example.adama.response.MainActivity">
 
     <Button
-        android:text="Button"
+        android:text="4"
+        android:textColor="@android:color/holo_blue_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button3"
@@ -21,7 +22,8 @@
         android:id="@+id/button4" />
 
     <Button
-        android:text="Button"
+        android:text="2"
+        android:textColor="@android:color/holo_blue_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
@@ -33,7 +35,8 @@
         android:layout_marginEnd="62dp" />
 
     <Button
-        android:text="Button"
+        android:text="3"
+        android:textColor="@android:color/holo_blue_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
@@ -43,7 +46,8 @@
         android:layout_marginBottom="31dp" />
 
     <Button
-        android:text="Button"
+        android:text="1"
+        android:textColor="@android:color/holo_blue_dark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button1"
