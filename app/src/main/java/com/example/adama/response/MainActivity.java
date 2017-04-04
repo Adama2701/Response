@@ -1,5 +1,6 @@
 package com.example.adama.response;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,18 +29,27 @@ public class MainActivity extends AppCompatActivity {
         imageView2 = (ImageView) findViewById(R.id.imageView2);
 
 
+        DBArguments  data = new DBArguments(this);
+        Test foo = new Test("Adama", 26, 65, "Man");
+        //data.InsertTest(foo);
+
+        //Prints rows from database
+        Cursor cursor = data.selectTest();
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getString(1)+" | "+cursor.getColumnName(2)+
+                    ": "+cursor.getInt(2)+" | "+cursor.getColumnName(3)+": "+cursor.getInt(3)+" | "+cursor.getColumnName(4)+": "+cursor.getString(4));
+            cursor.moveToNext();
+        }
+
+
         imageView2.setVisibility(View.INVISIBLE);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!imageView2.isShown()) {
-
-                    imageView2.setVisibility(View.VISIBLE);
-
-                }else{
-                    imageView2.setVisibility(View.INVISIBLE);
-                }
+               System.out.println("THIS IS TARNING");
             }
         });
 
