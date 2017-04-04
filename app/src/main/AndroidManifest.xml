@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="KalorieKounter"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Startactivity">
@@ -18,6 +18,9 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ThemeActivity" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".FoodActivity"></activity>
     </application>
 
 </manifest>
