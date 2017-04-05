@@ -5,13 +5,12 @@ package com.example.adama.response;
  */
 
 public class Test {
-
+    // User information
     private int id;
     private String name;
     private int age;
     private int weigth;
     private String gender;
-
 
     Test( String name, int age, int weigth, String gender){
 
