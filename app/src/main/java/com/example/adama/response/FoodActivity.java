@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class FoodActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -16,6 +17,23 @@ public class FoodActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
 
+        final Button amount1 = (Button) findViewById(R.id.amount1);
+        amount1.setTag(1);
+        amount1.setText("1");
+        amount1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int status =(Integer) v.getTag();
+                if(status == 1) {
+                    amount1.setText("2");
+                    v.setTag(0);
+                } else {
+                    amount1.setText("1");
+                    v.setTag(1);
+
+                }
+            }
+        });
         month = (Spinner) findViewById(R.id.month);
         day = (Spinner) findViewById(R.id.day);
 
@@ -39,4 +57,6 @@ public class FoodActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
 }

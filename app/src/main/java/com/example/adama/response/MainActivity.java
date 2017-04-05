@@ -8,8 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
@@ -43,8 +41,7 @@ Spinner spinner;
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        TextView myText = (TextView) view;
-        Toast.makeText(this, "You Selected " + myText.getText(), Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
