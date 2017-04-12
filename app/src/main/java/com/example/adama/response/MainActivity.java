@@ -48,7 +48,7 @@ Spinner spinner;
 
             @Override
             public void onClick(View view) {
-                Intent ja = new Intent(getApplicationContext(), ThemeActivity.class);
+                Intent ja = new Intent(getApplicationContext(), FoodActivity.class);
                 startActivity(ja);
             }
         });
