@@ -8,10 +8,14 @@ import android.widget.Button;
 
 public class Startactivity extends AppCompatActivity {
     Button proceed;
+    DBArguments dbArguments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startactivity);
+
+        dbArguments = new DBArguments(this);
+        dbArguments.InsertFoodTest(new FoodTest(1, "hej", 2, 2));
 
         proceed = (Button) findViewById(R.id.proceed);
 

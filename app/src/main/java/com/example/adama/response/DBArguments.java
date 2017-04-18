@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by Adama on 4/4/2017.
  */
@@ -55,8 +57,21 @@ public class DBArguments {
         if(cursor !=null){
             cursor.moveToFirst();
         }
-        System.out.println(cursor);
         return cursor;
+    }
+
+    public ArrayList<FoodTest> getallfoods(){
+        ArrayList<FoodTest> arrayList2 = new ArrayList<>();
+        Cursor foodpicker = selectFood_Test();
+        int i = 0;
+        foodpicker.moveToFirst();
+        while (!foodpicker.isAfterLast()){
+            arrayList2.add(i, new FoodTest(i, foodpicker.getString(1), foodpicker.getInt(2), foodpicker.getInt(3)));
+            System.out.println("Det virker");
+            i++;
+            foodpicker.moveToNext();
+        }
+        return arrayList2;
     }
 
 }
