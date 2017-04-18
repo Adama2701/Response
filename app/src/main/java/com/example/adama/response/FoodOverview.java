@@ -37,7 +37,7 @@ public class FoodOverview extends RecyclerView.Adapter<FoodOverview.adapterclass
         holder.rightview.setText(String.valueOf(foodObject.getQuantity()));
 
     }
-
+//push
     @Override
     public int getItemCount() {
         return arrayList.size();

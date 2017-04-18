@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.adama.response.PlusButtonActivity">
-
+//push
     <TextView
         android:id="@+id/writefood"
         android:layout_width="402dp"

@@ -3,6 +3,7 @@ package com.example.adama.response;
 /**
  * Created by filipgusak on 18/04/2017.
  */
+//push
 
 public class FoodObject {
     private String Id;
