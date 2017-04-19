@@ -14,8 +14,7 @@ public class FoodTest {
     private int calorie;
     private int quantity;
 
-    public FoodTest(int food_id, String food_name, int calorie, int quantity) {
-        this.food_id = food_id;
+    public FoodTest(String food_name, int calorie, int quantity) {
         this.food_name = food_name;
         this.calorie = calorie;
         this.quantity = quantity;

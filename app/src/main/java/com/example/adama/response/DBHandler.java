@@ -4,8 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.lang.ref.Reference;
-
 /**
  * Created by Adama on 4/4/2017.
  */
@@ -20,6 +18,7 @@ public class DBHandler extends SQLiteOpenHelper {
     // Contacts table name
     public static final String TABLE_CALORIES = "calioriesTable";
     public static final String TABLE_FOOD = "foodTable";
+    public static final String TABLE_EAT = "eatTable";
 
     // User Table Columns information
     public static final String USER_ID ="id";
@@ -35,7 +34,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String FOOD_CALORIE = "calorie";
     public static final String FOOD_QUANTITY = "quantity";
 
-
+    // Eat Table information
+    public static final String EAT_ID= "id";
 
 
 
@@ -60,9 +60,14 @@ public class DBHandler extends SQLiteOpenHelper {
                 + USER_AGE + " INTEGER,"
                 + USER_WEIGTH + " INTEGER,"
                 + USER_GENDER + " TEXT " + ")";
-               // + USER_FOOD + " INTEGER,"
               //  + "FOREIGN KEY(" + USER_FOOD + ")" + "REFERENCE" + TABLE_FOOD + "(" + FOOD_ID + ")"  + ")";
 
+        String CREATE_EAT_TABLE = "CREATE TABLE " + TABLE_EAT + "("
+                + EAT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                + USER_ID + " INTEGER, "
+                + FOOD_ID + " INTEGER, "
+                + "FOREIGN KEY(" + USER_ID + ")" + "REFERENCE" + TABLE_CALORIES + "(" + USER_ID + "),"
+                + "FOREIGN KEY(" + FOOD_ID + ")" + "REFERENCE" + TABLE_FOOD + "(" + FOOD_ID + ")," + ")";
 
         db.execSQL(CREATE_CALORIES_TABLE);
         db.execSQL(CREATE_FOOD_TABLE);

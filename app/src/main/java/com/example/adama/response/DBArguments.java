@@ -22,6 +22,10 @@ public class DBArguments {
         sqLiteDatabase = dbHandler.getWritableDatabase();
     }
 
+    public void DeleteDatabase(){
+        dbHandler.onUpgrade(sqLiteDatabase,1,2);
+    }
+
     public long InsertTest(Test test){
         ContentValues content = new ContentValues();
         content.put(DBHandler.USER_NAME,test.getName());
@@ -68,7 +72,7 @@ public class DBArguments {
         int i = 0;
         foodpicker.moveToFirst();
         while (!foodpicker.isAfterLast()){
-            arrayList2.add(i, new FoodTest(i, foodpicker.getString(1), foodpicker.getInt(2), foodpicker.getInt(3)));
+            arrayList2.add(i, new FoodTest(foodpicker.getString(1), foodpicker.getInt(2), foodpicker.getInt(3)));
             System.out.println("Det virker");
             i++;
             foodpicker.moveToNext();
