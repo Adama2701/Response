@@ -26,6 +26,8 @@ public class DBArguments {
         dbHandler.onUpgrade(sqLiteDatabase,1,2);
     }
 
+    public void CreateDatabase(){ dbHandler.onCreate(sqLiteDatabase);}
+
     public long InsertTest(Test test){
         ContentValues content = new ContentValues();
         content.put(DBHandler.USER_NAME,test.getName());
@@ -78,6 +80,18 @@ public class DBArguments {
             foodpicker.moveToNext();
         }
         return arrayList2;
+    }
+
+    public Cursor selectEat(){
+        String[] columns = new String[] {DBHandler.EAT_ID, DBHandler.EAT_USER, DBHandler.EAT_FOOD};
+
+        Cursor cursor = sqLiteDatabase.query(true,DBHandler.TABLE_EAT,columns,null,null,null,null,null,null);
+        if(cursor !=null){
+            cursor.moveToFirst();
+        }
+        System.out.println(cursor);
+        System.out.println("SUT MN KIN KAT LORTET VIRKER IKKE");
+        return cursor;
     }
 
 }

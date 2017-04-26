@@ -35,7 +35,9 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String FOOD_QUANTITY = "quantity";
 
     // Eat Table information
-    public static final String EAT_ID= "id";
+    public static final String EAT_ID = "id";
+    public static final String EAT_FOOD = "food_id";
+    public static final String EAT_USER = "user_id";
 
 
 
@@ -64,13 +66,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String CREATE_EAT_TABLE = "CREATE TABLE " + TABLE_EAT + "("
                 + EAT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
-                + USER_ID + " INTEGER, "
-                + FOOD_ID + " INTEGER, "
-                + "FOREIGN KEY(" + USER_ID + ")" + "REFERENCE" + TABLE_CALORIES + "(" + USER_ID + "),"
-                + "FOREIGN KEY(" + FOOD_ID + ")" + "REFERENCE" + TABLE_FOOD + "(" + FOOD_ID + ")," + ")";
+                + EAT_USER + " INTEGER, "
+                + EAT_FOOD + " INTEGER, "
+                + " FOREIGN KEY ("+EAT_USER+") REFERENCES  "+TABLE_CALORIES+"(" + USER_ID + "),"
+                + " FOREIGN KEY ("+EAT_FOOD+") REFERENCES  "+TABLE_FOOD+"(" + FOOD_ID + "));";
+
 
         db.execSQL(CREATE_CALORIES_TABLE);
         db.execSQL(CREATE_FOOD_TABLE);
+        db.execSQL(CREATE_EAT_TABLE);
     }
 
     @Override
@@ -79,6 +83,7 @@ public class DBHandler extends SQLiteOpenHelper {
         //Drop old table if it exist
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALORIES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EAT);
         onCreate(db);
 
 
