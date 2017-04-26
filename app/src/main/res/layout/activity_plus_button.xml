@@ -10,16 +10,14 @@
         android:id="@+id/writefood"
         android:layout_width="402dp"
         android:layout_height="29dp"
-        android:text="Enter your food down below and the amount"
+        android:text="Enter your food down below"
         android:textSize="18dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/enterfood"
@@ -31,7 +29,7 @@
         android:text=""
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="93dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="19dp"
         android:layout_below="@+id/writefood"
         android:layout_centerHorizontal="true" />
 
@@ -49,13 +47,25 @@
         android:layout_alignRight="@+id/enterfood"
         android:layout_alignEnd="@+id/enterfood" />
 
-    <Button
-        android:id="@+id/amount"
+    <EditText
+        android:id="@+id/enteramount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@+id/enterfood"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="117dp" />
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName|number"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/writeamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the amount of consumed food below"
+        android:textSize="18dp"
+        android:layout_marginBottom="22dp"
+        android:layout_above="@+id/editAmount"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

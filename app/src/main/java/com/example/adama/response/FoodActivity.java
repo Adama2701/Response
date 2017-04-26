@@ -8,13 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.CalendarView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class FoodActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, FoodOverview.itemClickCallback{
+public class FoodActivity extends AppCompatActivity implements FoodOverview.itemClickCallback{
 
     Spinner month;
     Spinner day;
@@ -22,7 +21,8 @@ public class FoodActivity extends AppCompatActivity implements AdapterView.OnIte
     RecyclerView recyclerView;
     FoodOverview foodOverview;
     ArrayList arrayList1;
-
+    CalendarView calendar;
+    ArrayList eventday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,31 +46,8 @@ public class FoodActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(jud);
             }
         });
+        calendar = (CalendarView) findViewById(R.id.calendar);
 
-        month = (Spinner) findViewById(R.id.month);
-        day = (Spinner) findViewById(R.id.day);
-
-        ArrayAdapter adapter1 = ArrayAdapter.createFromResource(this, R.array.month, android.R.layout.simple_spinner_item);
-        month.setAdapter(adapter1);
-        month.setOnItemSelectedListener(this);
-
-
-        ArrayAdapter adapter2 = ArrayAdapter.createFromResource(this, R.array.day, android.R.layout.simple_spinner_item);
-        day.setAdapter(adapter2);
-        day.setOnItemSelectedListener(this);
-
-
-
-    }
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 

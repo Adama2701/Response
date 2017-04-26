@@ -5,68 +5,60 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
-//push
+import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
+
+public class MainActivity extends AppCompatActivity
 {
 Button mainbutton;
+    EditText editName;
+    EditText sexEdit;
+    EditText age;
+    boolean hasUser = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TESTING DATABASE
-        DBArguments data = new DBArguments(this);
+       final DBArguments data = new DBArguments(this);
 
-        DBHandler kattne = new DBHandler(this);
-
-        data.DeleteDatabase();
-
-
-        //data.InsertFoodTest(new FoodTest( "Banana", 500,1));
-        //data.InsertTest(new UserObject("Kenneth", 26, 65, "Man"));
-        //data.InsertEatTest(new EatTest(1,1));
-
-
-
-
-        //FoodTest dummydata = new FoodTest(1, "Adama", 2000, 3 );
-        //data.InsertFoodTest(dummydata);
-
-        Cursor cursor = data.selectEat();
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getInt(1)+" | "+cursor.getColumnName(2)+
-                    ": "+cursor.getInt(2) + " | ");
-            cursor.moveToNext();
-        }
-        //TESTING DATABASE ENDS HERE
+        Cursor cursor = data.selectUser();
 
         mainbutton = (Button) findViewById(R.id.mainbutton);
+        editName = (EditText) findViewById(R.id.editName);
+        sexEdit = (EditText) findViewById(R.id.sexedit);
+        age = (EditText) findViewById(R.id.age);
 
+        System.out.println(cursor.getCount());
+        cursor.moveToFirst();
+        if (cursor.getCount()>0){
+            hasUser = true;
+            editName.setText(cursor.getString(1));
+            age.setText(cursor.getInt(2)+"");
+            sexEdit.setText(cursor.getString(3));
 
-        mainbutton.setOnClickListener(new View.OnClickListener(){
+        }
+
+        mainbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 Intent ja = new Intent(getApplicationContext(), FoodActivity.class);
+                if (!hasUser){
+                    int numberage = Integer.parseInt(age.getText().toString());
+                    data.InsertUser(new UserObject(editName.getText().toString(), numberage, sexEdit.getText().toString()));
+
+                }
                 startActivity(ja);
             }
+
+
         });
-}
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
 
-    }
 }

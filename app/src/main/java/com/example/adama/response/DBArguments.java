@@ -45,7 +45,6 @@ public class DBArguments {
         if(cursor !=null){
             cursor.moveToFirst();
         }
-        System.out.println(cursor);
         return cursor;
     }
 
