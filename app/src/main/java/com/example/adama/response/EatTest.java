@@ -9,22 +9,22 @@ public class EatTest {
 
     // Food information
     private int eat_id;
-    private String user_name;
-    private String food_name;
+    private Integer eat_user_id;
+    private Integer eat_food_id;
 
 
-    public EatTest(String user_name, String food_name) {
-        this.user_name = user_name;
-        this.food_name = food_name;
+    public EatTest(Integer eat_user_id, Integer eat_food_id) {
+        this.eat_user_id = eat_user_id;
+        this.eat_food_id = eat_food_id;
 
     }
 
-    public String getUser_name() {
-        return user_name;
+    public Integer getEat_user_id() {
+        return eat_user_id;
     }
 
-    public String getFood_name() {
-        return food_name;
+    public Integer getEat_food_id() {
+        return eat_food_id;
     }
 
     }

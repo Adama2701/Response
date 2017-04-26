@@ -23,10 +23,12 @@ Button mainbutton;
 
         DBHandler kattne = new DBHandler(this);
 
+        data.DeleteDatabase();
 
 
         //data.InsertFoodTest(new FoodTest( "Banana", 500,1));
-        //data.InsertTest(new Test("Kenneth", 26, 65, "Man"));
+        //data.InsertTest(new UserObject("Kenneth", 26, 65, "Man"));
+        //data.InsertEatTest(new EatTest(1,1));
 
 
 
@@ -38,8 +40,8 @@ Button mainbutton;
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getString(1)+" | "+cursor.getColumnName(2)+
-                    ": "+cursor.getString(2) + " | "+ cursor.getColumnName(3)+ ": "+ cursor.getString(3)+" | ");
+            System.out.println(cursor.getColumnName(0)+": "+cursor.getInt(0)+ " | "+ cursor.getColumnName(1)+ ": "+ cursor.getInt(1)+" | "+cursor.getColumnName(2)+
+                    ": "+cursor.getInt(2) + " | ");
             cursor.moveToNext();
         }
         //TESTING DATABASE ENDS HERE

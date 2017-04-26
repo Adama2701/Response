@@ -28,20 +28,20 @@ public class DBArguments {
 
     public void CreateDatabase(){ dbHandler.onCreate(sqLiteDatabase);}
 
-    public long InsertTest(Test test){
-        ContentValues content = new ContentValues();
-        content.put(DBHandler.USER_NAME,test.getName());
-        content.put(DBHandler.USER_AGE,test.getAge());
-        content.put(DBHandler.USER_WEIGTH,test.getWeigth());
-        content.put(DBHandler.USER_GENDER,test.getGender());
 
-        return sqLiteDatabase.insert(DBHandler.TABLE_CALORIES,null,content);
+    public long InsertUser(UserObject userObject){
+        ContentValues content = new ContentValues();
+        content.put(DBHandler.USER_NAME, userObject.getName());
+        content.put(DBHandler.USER_AGE, userObject.getAge());
+        content.put(DBHandler.USER_GENDER, userObject.getGender());
+
+        return sqLiteDatabase.insert(DBHandler.TABLE_USER,null,content);
     }
 
-    public Cursor selectTest(){
-        String[] columns = new String[] {DBHandler.USER_ID, DBHandler.USER_NAME, DBHandler.USER_AGE, DBHandler.USER_WEIGTH, DBHandler.USER_GENDER};
+    public Cursor selectUser(){
+        String[] columns = new String[] {DBHandler.USER_ID, DBHandler.USER_NAME, DBHandler.USER_AGE, DBHandler.USER_GENDER};
 
-        Cursor cursor = sqLiteDatabase.query(true,DBHandler.TABLE_CALORIES,columns,null,null,null,null,null,null);
+        Cursor cursor = sqLiteDatabase.query(true,DBHandler.TABLE_USER,columns,null,null,null,null,null,null);
         if(cursor !=null){
             cursor.moveToFirst();
         }
@@ -90,8 +90,16 @@ public class DBArguments {
             cursor.moveToFirst();
         }
         System.out.println(cursor);
-        System.out.println("SUT MN KIN KAT LORTET VIRKER IKKE");
         return cursor;
     }
+
+    public long InsertEatTest(EatTest eattest){
+        ContentValues content = new ContentValues();
+        content.put(DBHandler.EAT_USER,eattest.getEat_user_id());
+        content.put(DBHandler.EAT_FOOD,eattest.getEat_food_id());
+
+        return sqLiteDatabase.insert(DBHandler.TABLE_EAT,null,content);
+    }
+
 
 }

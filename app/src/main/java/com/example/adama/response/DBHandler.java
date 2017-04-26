@@ -16,7 +16,7 @@ public class DBHandler extends SQLiteOpenHelper {
     // Database Name
     private static final String DATABASE_NAME = "caloriesInfo";
     // Contacts table name
-    public static final String TABLE_CALORIES = "calioriesTable";
+    public static final String TABLE_USER = "userTable";
     public static final String TABLE_FOOD = "foodTable";
     public static final String TABLE_EAT = "eatTable";
 
@@ -24,9 +24,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String USER_ID ="id";
     public static final String USER_NAME = "name";
     public static final String USER_AGE = "age";
-    public static final String USER_WEIGTH ="weigth";
     public static final String USER_GENDER ="gender";
-    public static final String USER_FOOD = "user_food";
 
     //Food Table information
     public static final String FOOD_ID ="id";
@@ -56,19 +54,17 @@ public class DBHandler extends SQLiteOpenHelper {
                 + FOOD_QUANTITY + " INTEGER " + ")";
 
 
-        String CREATE_CALORIES_TABLE = "CREATE TABLE " + TABLE_CALORIES + "("
+        String CREATE_CALORIES_TABLE = "CREATE TABLE " + TABLE_USER + "("
                 + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + USER_NAME + " TEXT,"
                 + USER_AGE + " INTEGER,"
-                + USER_WEIGTH + " INTEGER,"
                 + USER_GENDER + " TEXT " + ")";
-              //  + "FOREIGN KEY(" + USER_FOOD + ")" + "REFERENCE" + TABLE_FOOD + "(" + FOOD_ID + ")"  + ")";
 
         String CREATE_EAT_TABLE = "CREATE TABLE " + TABLE_EAT + "("
                 + EAT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + EAT_USER + " INTEGER, "
                 + EAT_FOOD + " INTEGER, "
-                + " FOREIGN KEY ("+EAT_USER+") REFERENCES  "+TABLE_CALORIES+"(" + USER_ID + "),"
+                + " FOREIGN KEY ("+EAT_USER+") REFERENCES  "+ TABLE_USER +"(" + USER_ID + "),"
                 + " FOREIGN KEY ("+EAT_FOOD+") REFERENCES  "+TABLE_FOOD+"(" + FOOD_ID + "));";
 
 
@@ -81,12 +77,17 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         //Drop old table if it exist
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CALORIES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOOD);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EAT);
         onCreate(db);
 
 
 
+    }
+
+    public void dropRows(SQLiteDatabase db, String database){
+
+        db.execSQL("DELETE * from "+ database);
     }
 }

@@ -4,19 +4,17 @@ package com.example.adama.response;
  * Created by Adama on 4/4/2017.
  */
 
-public class Test {
+public class UserObject {
     // User information
     private int id;
     private String name;
     private int age;
-    private int weigth;
     private String gender;
 
-    Test( String name, int age, int weigth, String gender){
+    UserObject(String name, int age, String gender){
 
         this.name = name;
         this.age = age;
-        this.weigth = weigth;
         this.gender = gender;
 
     }
@@ -25,18 +23,12 @@ public class Test {
         return id;
     }
 
-
-
     public String getName(){
         return name;
     }
 
     public int getAge() {
         return age;
-    }
-
-    public int getWeigth() {
-        return weigth;
     }
 
     public String getGender() {
