@@ -13,13 +13,13 @@
     <Button
         android:backgroundTint="@android:color/holo_blue_dark"
         android:text="Proceed"
+        android:textSize="20dp"
         android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:id="@+id/proceed"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="KaloriKounter"
@@ -32,25 +32,17 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:text="Welcome to KaloriKounter!
+        android:text="Welcome to KalorieKounter!
 
-Using this application, you can keep track on your food consumption and the amount of calories throughout the day.
+Enter your daily food consumptions to keep track on your calories!
 
-You simply register what you have eaten for that particular day and the amount, and the system will calculate the amount of consumed calories.
-
-After each day, the system will come with its recommendations depending on the registered food consumption.
-
-We hope you enjoy this application!
-
-Kind regards
-
-KaloriKounter"
+Press proceed to get started!"
         android:layout_width="wrap_content"
         android:textSize="18dp"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
+        android:layout_marginTop="34dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="13dp" />
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
