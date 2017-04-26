@@ -1,6 +1,7 @@
 package com.example.adama.response;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -18,6 +19,7 @@ public class DBHandler extends SQLiteOpenHelper {
     // Contacts table name
     public static final String TABLE_USER = "userTable";
     public static final String TABLE_FOOD = "foodTable";
+    public static final String TABLE_LIST_FOOD = "listfoodTable";
     public static final String TABLE_EAT = "eatTable";
 
     // User Table Columns information
@@ -29,8 +31,12 @@ public class DBHandler extends SQLiteOpenHelper {
     //Food Table information
     public static final String FOOD_ID ="id";
     public static final String FOOD_NAME ="name";
-    public static final String FOOD_CALORIE = "calorie";
     public static final String FOOD_QUANTITY = "quantity";
+
+    // Food List table information
+    public static final String LIST_FOOD_ID = "id";
+    public static final String LIST_FOOD_NAME =  "name";
+    public static final String LIST_FOOD_CALORIE = "calorie";
 
     // Eat Table information
     public static final String EAT_ID = "id";
@@ -38,19 +44,22 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String EAT_USER = "user_id";
 
 
-
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        String CREATE_LIST_FOOD_TABLE = "CREATE TABLE " + TABLE_LIST_FOOD + "("
+                + LIST_FOOD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                + LIST_FOOD_NAME + " TEXT,"
+                + LIST_FOOD_CALORIE + " INTEGER, " + ")";
+
 
         String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOOD + "("
                 + FOOD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + FOOD_NAME + " TEXT,"
-                + FOOD_CALORIE + " INTEGER,"
                 + FOOD_QUANTITY + " INTEGER " + ")";
 
 
@@ -67,7 +76,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 + " FOREIGN KEY ("+EAT_USER+") REFERENCES  "+ TABLE_USER +"(" + USER_ID + "),"
                 + " FOREIGN KEY ("+EAT_FOOD+") REFERENCES  "+TABLE_FOOD+"(" + FOOD_ID + "));";
 
-
+        db.execSQL(CREATE_LIST_FOOD_TABLE);
         db.execSQL(CREATE_CALORIES_TABLE);
         db.execSQL(CREATE_FOOD_TABLE);
         db.execSQL(CREATE_EAT_TABLE);
@@ -82,12 +91,10 @@ public class DBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EAT);
         onCreate(db);
 
-
-
     }
 
-    public void dropRows(SQLiteDatabase db, String database){
+    public void dropRows(SQLiteDatabase db){
 
-        db.execSQL("DELETE * from "+ database);
+        db.execSQL(" DELETE * FROM "+ TABLE_EAT);
     }
 }

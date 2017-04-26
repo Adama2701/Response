@@ -11,12 +11,10 @@ public class FoodTest {
     // Food information
     private int food_id;
     private String food_name;
-    private int calorie;
     private int quantity;
 
     public FoodTest(String food_name, int calorie, int quantity) {
         this.food_name = food_name;
-        this.calorie = calorie;
         this.quantity = quantity;
     }
 
@@ -28,9 +26,6 @@ public class FoodTest {
         return food_name;
     }
 
-    public int getCalorie() {
-        return calorie;
-    }
 
     public int getQuantity() {
         return quantity;

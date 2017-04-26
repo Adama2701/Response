@@ -28,6 +28,8 @@ public class DBArguments {
 
     public void CreateDatabase(){ dbHandler.onCreate(sqLiteDatabase);}
 
+    public void deleteRowsKat() {dbHandler.dropRows(sqLiteDatabase);}
+
 
     public long InsertUser(UserObject userObject){
         ContentValues content = new ContentValues();
@@ -51,14 +53,13 @@ public class DBArguments {
     public long InsertFoodTest(FoodTest foodtest){
         ContentValues content = new ContentValues();
         content.put(DBHandler.FOOD_NAME,foodtest.getFood_name());
-        content.put(DBHandler.FOOD_CALORIE,foodtest.getCalorie());
         content.put(DBHandler.FOOD_QUANTITY,foodtest.getQuantity());
 
         return sqLiteDatabase.insert(DBHandler.TABLE_FOOD,null,content);
     }
 
     public Cursor selectFood_Test(){
-        String[] columns = new String[] {DBHandler.FOOD_ID, DBHandler.FOOD_NAME, DBHandler.FOOD_CALORIE, DBHandler.FOOD_QUANTITY};
+        String[] columns = new String[] {DBHandler.FOOD_ID, DBHandler.FOOD_NAME, DBHandler.FOOD_QUANTITY};
 
         Cursor cursor = sqLiteDatabase.query(true,DBHandler.TABLE_FOOD,columns,null,null,null,null,null,null);
         if(cursor !=null){
@@ -92,7 +93,7 @@ public class DBArguments {
         return cursor;
     }
 
-    public long InsertEatTest(EatTest eattest){
+    public long InsertEatTest(EatObject eattest){
         ContentValues content = new ContentValues();
         content.put(DBHandler.EAT_USER,eattest.getEat_user_id());
         content.put(DBHandler.EAT_FOOD,eattest.getEat_food_id());

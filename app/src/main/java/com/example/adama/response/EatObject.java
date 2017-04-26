@@ -4,7 +4,7 @@ package com.example.adama.response;
  * Created by adama on 25-04-2017.
  */
 
-public class EatTest {
+public class EatObject {
 
 
     // Food information
@@ -13,7 +13,7 @@ public class EatTest {
     private Integer eat_food_id;
 
 
-    public EatTest(Integer eat_user_id, Integer eat_food_id) {
+    public EatObject(Integer eat_user_id, Integer eat_food_id) {
         this.eat_user_id = eat_user_id;
         this.eat_food_id = eat_food_id;
 
