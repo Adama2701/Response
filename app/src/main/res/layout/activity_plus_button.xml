@@ -14,10 +14,10 @@
         android:textSize="18dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="38dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignLeft="@+id/enterfood"
+        android:layout_alignStart="@+id/enterfood" />
 
     <EditText
         android:id="@+id/enterfood"
@@ -63,8 +63,8 @@
         android:layout_height="wrap_content"
         android:text="Enter the amount of consumed food below"
         android:textSize="18dp"
-        android:layout_marginBottom="22dp"
-        android:layout_above="@+id/editAmount"
+        android:layout_marginBottom="14dp"
+        android:layout_above="@+id/enteramount"
         android:layout_centerHorizontal="true" />
 
 

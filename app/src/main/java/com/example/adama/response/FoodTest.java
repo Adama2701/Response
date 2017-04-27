@@ -13,7 +13,7 @@ public class FoodTest {
     private String food_name;
     private int quantity;
 
-    public FoodTest(String food_name, int calorie, int quantity) {
+    public FoodTest(String food_name, int quantity) {
         this.food_name = food_name;
         this.quantity = quantity;
     }

@@ -74,7 +74,7 @@ public class DBArguments {
         int i = 0;
         foodpicker.moveToFirst();
         while (!foodpicker.isAfterLast()){
-            arrayList2.add(i, new FoodTest(foodpicker.getString(1), foodpicker.getInt(2), foodpicker.getInt(3)));
+            arrayList2.add(i, new FoodTest(foodpicker.getString(1), foodpicker.getInt(2)));
             System.out.println("Det virker");
             i++;
             foodpicker.moveToNext();
@@ -100,6 +100,7 @@ public class DBArguments {
 
         return sqLiteDatabase.insert(DBHandler.TABLE_EAT,null,content);
     }
+
 
 
 }
