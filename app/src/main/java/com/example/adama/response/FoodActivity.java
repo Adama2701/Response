@@ -48,6 +48,9 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
         });
         calendar = (CalendarView) findViewById(R.id.calendar);
 
+        Long hej = calendar.getDate();
+        System.out.println("DATOEN FOR I DAG ER " + hej);
+
 
     }
 

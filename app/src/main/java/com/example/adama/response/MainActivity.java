@@ -24,14 +24,21 @@ Button mainbutton;
 
        final DBArguments data = new DBArguments(this);
 
+        //data.DeleteDatabase();
+
+
+
         Cursor cursor = data.selectUser();
+
+        data.foo();
+
 
         mainbutton = (Button) findViewById(R.id.mainbutton);
         editName = (EditText) findViewById(R.id.editName);
         sexEdit = (EditText) findViewById(R.id.sexedit);
         age = (EditText) findViewById(R.id.age);
 
-        System.out.println(cursor.getCount());
+        //System.out.println(cursor.getCount());
         cursor.moveToFirst();
         if (cursor.getCount()>0){
             hasUser = true;

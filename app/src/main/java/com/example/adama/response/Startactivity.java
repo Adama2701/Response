@@ -17,7 +17,7 @@ public class Startactivity extends AppCompatActivity {
 
         //dbArguments = new DBArguments(this);
         //dbArguments.DeleteDatabase();
-        //dbArguments.InsertFoodTest(new FoodTest(1, "hej", 2, 2));
+        //dbArguments.InsertFoodTest(new FoodObject(1, "hej", 2, 2));
 
         proceed = (Button) findViewById(R.id.proceed);
 

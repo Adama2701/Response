@@ -6,16 +6,20 @@ package com.example.adama.response;
 //push
 
 
-public class FoodTest {
+public class FoodObject {
 
     // Food information
     private int food_id;
     private String food_name;
+    private int calorie;
     private int quantity;
+    private String time;
 
-    public FoodTest(String food_name, int quantity) {
+    public FoodObject(String food_name, int calorie, int quantity, String time) {
         this.food_name = food_name;
+        this.calorie = calorie;
         this.quantity = quantity;
+        this.time = time;
     }
 
     public int getFood_id() {
@@ -26,11 +30,14 @@ public class FoodTest {
         return food_name;
     }
 
+    public int getCalorie() {return calorie;}
+
 
     public int getQuantity() {
         return quantity;
     }
 
+    public String getTime() {return time;}
 
 
 

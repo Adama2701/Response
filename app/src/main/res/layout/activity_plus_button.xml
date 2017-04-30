@@ -67,5 +67,30 @@
         android:layout_above="@+id/enteramount"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/writecalorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/complete"
+        android:layout_alignLeft="@+id/enteramount"
+        android:layout_alignStart="@+id/enteramount"
+        android:layout_marginBottom="64dp"
+        android:text="Enter the foods calorie value" />
+
+    <EditText
+        android:id="@+id/entercalorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20dp"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="93dp"
+        android:layout_above="@+id/complete"
+        android:layout_alignLeft="@+id/complete"
+        android:layout_alignStart="@+id/complete"
+        android:layout_marginBottom="12dp" />
+
 
 </RelativeLayout>

@@ -16,10 +16,10 @@ import java.util.ArrayList;
 public class FoodOverview extends RecyclerView.Adapter<FoodOverview.adapterclass> {
 
     private itemClickCallback callback;
-    private ArrayList<FoodTest> arrayList;
+    private ArrayList<FoodObject> arrayList;
     private LayoutInflater layoutInflater;
 
-    public FoodOverview(ArrayList<FoodTest> foodObjectArrayList, Context context){
+    public FoodOverview(ArrayList<FoodObject> foodObjectArrayList, Context context){
         this.layoutInflater= LayoutInflater.from(context);
         this.arrayList= foodObjectArrayList;
     }
@@ -32,9 +32,10 @@ public class FoodOverview extends RecyclerView.Adapter<FoodOverview.adapterclass
 
     @Override
     public void onBindViewHolder(adapterclass holder, int position) {
-        FoodTest foodObject = arrayList.get(position);
+        FoodObject foodObject = arrayList.get(position);
         holder.leftview.setText(foodObject.getFood_name());
         holder.rightview.setText(String.valueOf(foodObject.getQuantity()));
+        holder.middleview.setText(String.valueOf(foodObject.getCalorie()));
 
     }
 //push
@@ -53,6 +54,7 @@ public void setitemClickCallback(final itemClickCallback itemClickCallback){
 class adapterclass extends RecyclerView.ViewHolder implements View.OnClickListener {
     private TextView leftview;
     private TextView rightview;
+    private TextView middleview;
     private View container;
 
 
@@ -62,6 +64,7 @@ class adapterclass extends RecyclerView.ViewHolder implements View.OnClickListen
 
         leftview = (TextView) entityview.findViewById(R.id.leftview);
         rightview = (TextView) entityview.findViewById(R.id.rightview);
+        middleview = (TextView) entityview.findViewById(R.id.middleview);
         container = entityview.findViewById(R.id.cardview);
         container.setOnClickListener(this);
     }

@@ -7,11 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-//push
 
-/**
- * Created by Adama on 4/4/2017.
- */
 
 public class DBArguments {
     private DBHandler dbHandler;
@@ -29,6 +25,11 @@ public class DBArguments {
     public void CreateDatabase(){ dbHandler.onCreate(sqLiteDatabase);}
 
     public void deleteRowsKat() {dbHandler.dropRows(sqLiteDatabase);}
+
+    public void foo(){dbHandler.foo(sqLiteDatabase);
+
+
+    }
 
 
     public long InsertUser(UserObject userObject){
@@ -50,16 +51,18 @@ public class DBArguments {
         return cursor;
     }
 
-    public long InsertFoodTest(FoodTest foodtest){
+    public long InsertFoodTest(FoodObject foodtest){
         ContentValues content = new ContentValues();
         content.put(DBHandler.FOOD_NAME,foodtest.getFood_name());
+        content.put(DBHandler.FOOD_CALORIE,foodtest.getCalorie());
         content.put(DBHandler.FOOD_QUANTITY,foodtest.getQuantity());
+        content.put(DBHandler.FOOD_DATE, foodtest.getTime());
 
         return sqLiteDatabase.insert(DBHandler.TABLE_FOOD,null,content);
     }
 
     public Cursor selectFood_Test(){
-        String[] columns = new String[] {DBHandler.FOOD_ID, DBHandler.FOOD_NAME, DBHandler.FOOD_QUANTITY};
+        String[] columns = new String[] {DBHandler.FOOD_ID, DBHandler.FOOD_NAME, DBHandler.FOOD_CALORIE, DBHandler.FOOD_QUANTITY, DBHandler.FOOD_DATE};
 
         Cursor cursor = sqLiteDatabase.query(true,DBHandler.TABLE_FOOD,columns,null,null,null,null,null,null);
         if(cursor !=null){
@@ -68,13 +71,13 @@ public class DBArguments {
         return cursor;
     }
 
-    public ArrayList<FoodTest> getallfoods(){
-        ArrayList<FoodTest> arrayList2 = new ArrayList<>();
+    public ArrayList<FoodObject> getallfoods(){
+        ArrayList<FoodObject> arrayList2 = new ArrayList<>();
         Cursor foodpicker = selectFood_Test();
         int i = 0;
         foodpicker.moveToFirst();
         while (!foodpicker.isAfterLast()){
-            arrayList2.add(i, new FoodTest(foodpicker.getString(1), foodpicker.getInt(2)));
+            arrayList2.add(i, new FoodObject(foodpicker.getString(1),foodpicker.getInt(2), foodpicker.getInt(3), foodpicker.getString(4)));
             System.out.println("Det virker");
             i++;
             foodpicker.moveToNext();
