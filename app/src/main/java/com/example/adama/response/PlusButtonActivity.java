@@ -45,6 +45,14 @@ Button complete;
 
         cursor.moveToFirst();
 
+        viewfoodlist = (Button) findViewById(R.id.viewfoodlist);
+        viewfoodlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewfood = new Intent(getApplicationContext(), ListFoodActivity.class);
+                startActivity(viewfood);
+            }
+        });
 
         complete = (Button) findViewById(R.id.complete);
         complete.setOnClickListener(new View.OnClickListener() {
@@ -57,14 +65,7 @@ Button complete;
                 data.InsertFoodTest(new FoodObject(enterfood.getText().toString(), calorie , amountfood, timeholder));
 
                 startActivity(xa);
-                viewfoodlist = (Button) findViewById(R.id.viewfoodlist);
-                viewfoodlist.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent viewfood = new Intent(getApplicationContext(), ListFoodActivity.class);
-                        startActivity(viewfood);
-                    }
-                });
+
 
                 entercalorie.setText(" ");
                 enterfood.setText(" ");
