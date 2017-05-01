@@ -37,15 +37,12 @@
         android:id="@+id/complete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="27dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:text="Complete"
         android:textColor="@android:color/white"
-        android:layout_alignLeft="@+id/enterfood"
-        android:layout_alignStart="@+id/enterfood"
-        android:layout_alignRight="@+id/enterfood"
-        android:layout_alignEnd="@+id/enterfood" />
+        android:layout_alignRight="@+id/writeamount"
+        android:layout_alignEnd="@+id/writeamount"
+        android:layout_alignParentBottom="true" />
 
     <EditText
         android:id="@+id/enteramount"
@@ -63,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text="Enter the amount of consumed food below"
         android:textSize="18dp"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="25dp"
         android:layout_above="@+id/enteramount"
         android:layout_centerHorizontal="true" />
 
@@ -71,26 +68,36 @@
         android:id="@+id/writecalorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/complete"
-        android:layout_alignLeft="@+id/enteramount"
-        android:layout_alignStart="@+id/enteramount"
-        android:layout_marginBottom="64dp"
-        android:text="Enter the foods calorie value" />
+        android:textSize="18dp"
+        android:text="Enter the calorie value for the food below"
+        android:layout_below="@+id/enteramount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp" />
 
     <EditText
         android:id="@+id/entercalorie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:textSize="20dp"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|number"
         android:text=""
+        android:textSize="20dp"
         tools:layout_editor_absoluteX="60dp"
         tools:layout_editor_absoluteY="93dp"
-        android:layout_above="@+id/complete"
-        android:layout_alignLeft="@+id/complete"
-        android:layout_alignStart="@+id/complete"
-        android:layout_marginBottom="12dp" />
+        android:layout_below="@+id/writecalorie"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/viewfoodlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="View list of foods
+and their calories"
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/complete"
+        android:layout_alignLeft="@+id/writeamount"
+        android:layout_alignStart="@+id/writeamount" />
 
 
 </RelativeLayout>

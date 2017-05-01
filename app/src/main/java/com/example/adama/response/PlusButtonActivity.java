@@ -16,6 +16,10 @@ Button complete;
     EditText enteramount;
     EditText entercalorie;
     boolean foodentered = false;
+    String timeholder;
+    Button viewfoodlist;
+
+
 
 
 
@@ -23,6 +27,13 @@ Button complete;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plus_button);
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null){
+            timeholder = bundle.getString("dato");
+
+        }
 
         final DBArguments data = new DBArguments(this);
 
@@ -42,9 +53,18 @@ Button complete;
                 Intent xa = new Intent(getApplicationContext(), FoodActivity.class);
                     int calorie = Integer.parseInt(entercalorie.getText().toString());
                     int amountfood = Integer.parseInt(enteramount.getText().toString());
-                    data.InsertFoodTest(new FoodObject(enterfood.getText().toString(), calorie , amountfood, "")); //PRØVER AT INDSÆTTE TIME
+
+                data.InsertFoodTest(new FoodObject(enterfood.getText().toString(), calorie , amountfood, timeholder));
 
                 startActivity(xa);
+                viewfoodlist = (Button) findViewById(R.id.viewfoodlist);
+                viewfoodlist.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent viewfood = new Intent(getApplicationContext(), ListFoodActivity.class);
+                        startActivity(viewfood);
+                    }
+                });
 
                 entercalorie.setText(" ");
                 enterfood.setText(" ");

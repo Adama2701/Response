@@ -56,8 +56,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 + FOOD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + FOOD_NAME + " TEXT,"
                 + FOOD_CALORIE + " INTEGER, "
-                + FOOD_QUANTITY + " INTEGER "
-                + FOOD_DATE + " TEXT" + ")";
+                + FOOD_QUANTITY + " INTEGER, "
+                + FOOD_DATE + " TEXT " + ")";
 
 
         String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("

@@ -104,6 +104,11 @@ public class DBArguments {
         return sqLiteDatabase.insert(DBHandler.TABLE_EAT,null,content);
     }
 
+    public int callFoo (){
+        int temp;
+        temp = dbHandler.foo(sqLiteDatabase);
+        return temp;
+    }
 
 
 }
