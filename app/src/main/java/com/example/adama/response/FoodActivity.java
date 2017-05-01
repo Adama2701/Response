@@ -36,10 +36,9 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
         data = new DBArguments(this);
-        final Calendar dateCalendar = Calendar.getInstance();
-        final SimpleDateFormat formatdate = new SimpleDateFormat("dd/MM/yyyy");
-        final Long[] hej = new Long[1];
-         currentDate = formatdate.format(dateCalendar.getTime());
+        Calendar dateCalendar = Calendar.getInstance();
+        SimpleDateFormat formatdate = new SimpleDateFormat("dd/MM/yyyy");
+        currentDate = formatdate.format(dateCalendar.getTime());
 
         setview(currentDate);
 
@@ -48,7 +47,7 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
             @Override
             public void onClick(View view) {
                 Intent jud = new Intent(getApplicationContext(), PlusButtonActivity.class);
-                jud.putExtra("dato", formatdate.format(dateCalendar.getTime()));
+                jud.putExtra("dato", currentDate);
                 startActivity(jud);
             }
         });
@@ -59,6 +58,7 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
             @Override
             public void onClick(View view) {
                 Intent datavisualize = new Intent(getApplicationContext(), ViewDataActivity.class);
+                datavisualize.putExtra("date", currentDate);
                 startActivity(datavisualize);
             }
         });
@@ -68,10 +68,13 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
-                hej[0] = calendar.getDate();
-                dateCalendar.setTimeInMillis(hej[0]);
-                System.out.println("Todays date is:  " + formatdate.format(dateCalendar.getTime()));
-                currentDate = formatdate.format(dateCalendar.getTime());
+                month = month +1;
+                String dd = "";
+                String MM = "";
+                if(day <9)dd = "0"+day;
+                if(month<9)MM = "0"+month;
+                currentDate = ""+dd+"/"+MM+"/"+year;
+                System.out.println(currentDate);
                 setview(currentDate);
             }
         });

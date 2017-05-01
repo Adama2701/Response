@@ -107,8 +107,8 @@ public class DBArguments {
         return sqLiteDatabase.insert(DBHandler.TABLE_EAT,null,content);
     }
 
-    public int callFoo (String string){
-        int temp;
+    public int[] callFoo (String string){
+        int[] temp;
         temp = dbHandler.foo(sqLiteDatabase, string);
         FoodActivity.foodOverview.notifyDataSetChanged();
 

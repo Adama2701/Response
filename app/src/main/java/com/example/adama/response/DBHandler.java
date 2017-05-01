@@ -96,7 +96,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    public int  foo(SQLiteDatabase db, String stringdate){
+    public int[]  foo(SQLiteDatabase db, String stringdate){
         Cursor cursor = db.rawQuery("SELECT calorie  FROM  foodTable ",null);
         Cursor food_cursor = db.rawQuery("SELECT * FROM foodTable",null);
 
@@ -104,6 +104,7 @@ public class DBHandler extends SQLiteOpenHelper {
         Cursor user_gender_cursor = db.rawQuery("SELECT gender FROM userTable",null);
 
         String date = "";
+        int [] result= new int[2];
 
 
 
@@ -124,6 +125,7 @@ public class DBHandler extends SQLiteOpenHelper {
                     sum = sum + x;
                 }
             }
+            result[0] = sum;
         food_cursor.close();
 
 
@@ -165,10 +167,34 @@ public class DBHandler extends SQLiteOpenHelper {
         user_gender_cursor.close();
 
        System.out.println("SUMMEN ER :" + sum);
-       if (age > 8 && sum > 1000 && gender.matches("Male"))
-       {System.out.println( "You have eaten too many calories, you need to cut down " + (sum - 1500));}
+       if (age < 9 && sum <= 1200 && gender.matches("Female"))
+       {
+           result[1] = 1200 - result[0];
+       }else if(age < 9  && gender.matches("Male")){
+           result[1] = 1400 - result[0];
+       }else if(age > 9 && age < 14 && gender.matches("Female")){
+           result[1] = 1600 - result[0];
+       }else if(age > 9 && age < 14  && gender.matches("Male")){
+           result[1] = 1800 - result[0];
+       }else if(age > 13 && age < 19 && gender.matches("Female")){
+           result[1] = 1800 - result[0];
+       }else if(age > 13 && age < 19  && gender.matches("Male")){
+           result[1] = 2200 - result[0];
+       }else if(age > 18 && age < 31 && gender.matches("Female")){
+           result[1] = 2000 - result[0];
+       }else if(age > 18 && age < 31 && gender.matches("Male")){
+           result[1] = 2400 - result[0];
+       }else if(age > 30 && age < 51 && gender.matches("Female")){
+           result[1] = 1800 - result[0];
+       }else if(age > 30 && age < 50 && gender.matches("Male")){
+           result[1] = 2200 - result[0];
+       }else if(age > 51 && sum <= 1600 && gender.matches("Female")){
+           result[1] = 1600 - result[0];
+       }else if(age > 51 && sum <= 2000 && gender.matches("Male")){
+           result[1] = 2000 - result[0];
+       }
 
-        return sum;
+        return result;
 
     }
 

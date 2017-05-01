@@ -7,22 +7,31 @@ import android.widget.TextView;
 public class ViewDataActivity extends AppCompatActivity {
 DBArguments dbArguments;
     TextView eatentoday;
+    TextView improvement;
+    String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_data);
+        Bundle bundle = getIntent().getExtras();
 
+        if (bundle != null){
+            date = bundle.getString("date");
+
+        }
         eatentoday = (TextView) findViewById(R.id.eatentoday);
+        improvement = (TextView) findViewById(R.id.improvement);
 
         final DBArguments data = new DBArguments(this);
 
+        int[] kat = data.callFoo(date);
 
 
-       // int kat = data.callFoo();
-        //System.out.println(kat);
 
-       // eatentoday.setText(kat+""+"cal");
+
+        eatentoday.setText(kat[0]+" "+"cal");
+        improvement.setText(kat[1] + " cal");
 
         //eatentoday.setText(dbArguments.callFoo()+"");
 
