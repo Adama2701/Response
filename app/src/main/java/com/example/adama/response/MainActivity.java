@@ -24,13 +24,13 @@ Button mainbutton;
 
        final DBArguments data = new DBArguments(this);
 
-        //data.DeleteDatabase();
+
 
 
 
         Cursor cursor = data.selectUser();
-
-//        data.foo();
+        //data.DeleteDatabase();
+        data.foo();
 
 
         mainbutton = (Button) findViewById(R.id.mainbutton);

@@ -15,7 +15,17 @@ DBArguments dbArguments;
 
         eatentoday = (TextView) findViewById(R.id.eatentoday);
 
-        eatentoday.setText(dbArguments.callFoo()+"");
+        final DBArguments data = new DBArguments(this);
+
+
+
+        int kat = data.callFoo();
+        System.out.println(kat);
+
+        eatentoday.setText(kat+""+"cal");
+
+        //eatentoday.setText(dbArguments.callFoo()+"");
+
 
     }
 }

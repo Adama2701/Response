@@ -63,6 +63,7 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
                 startActivity(datavisualize);
             }
         });
+
         calendar = (CalendarView) findViewById(R.id.calendar);
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
