@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class FoodActivity extends AppCompatActivity implements FoodOverview.itemClickCallback{
@@ -20,29 +21,27 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
 
     FloatingActionButton plusbutton;
     RecyclerView recyclerView;
-    FoodOverview foodOverview;
+    public static FoodOverview foodOverview;
     Button proceed;
     CalendarView calendar;
+    DBArguments dbArguments;
+    String currentDate;
+    ArrayList<FoodObject> foods;
+    DBArguments data;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food);
-        DBArguments data = new DBArguments(this);
+        data = new DBArguments(this);
         final Calendar dateCalendar = Calendar.getInstance();
         final SimpleDateFormat formatdate = new SimpleDateFormat("dd/MM/yyyy");
         final Long[] hej = new Long[1];
+         currentDate = formatdate.format(dateCalendar.getTime());
 
-
-
-
-        foodOverview = new FoodOverview(data.getallfoods(), this);
-
-        foodOverview.setitemClickCallback(this);
-        recyclerView = (RecyclerView) findViewById(R.id.recycleview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(foodOverview);
+        setview(currentDate);
 
         plusbutton = (FloatingActionButton) findViewById(R.id.plusbutton);
         plusbutton.setOnClickListener(new View.OnClickListener() {
@@ -72,15 +71,27 @@ public class FoodActivity extends AppCompatActivity implements FoodOverview.item
                 hej[0] = calendar.getDate();
                 dateCalendar.setTimeInMillis(hej[0]);
                 System.out.println("Todays date is:  " + formatdate.format(dateCalendar.getTime()));
-
-
+                currentDate = formatdate.format(dateCalendar.getTime());
+                setview(currentDate);
             }
         });
+
 
     }
 
     @Override
     public void onItemClick(View view, int position) {
+
+    }
+
+    void setview(String currentDate){
+        foodOverview = new FoodOverview(data.getallfoods(currentDate), this);
+
+        foodOverview.setitemClickCallback(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycleview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(foodOverview);
+        foodOverview.notifyDataSetChanged();
 
     }
 }

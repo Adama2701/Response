@@ -26,10 +26,9 @@ public class DBArguments {
 
     public void deleteRowsKat() {dbHandler.dropRows(sqLiteDatabase);}
 
-    public void foo(){dbHandler.foo(sqLiteDatabase);
+    //public void foo(){dbHandler.foo(sqLiteDatabase, );
 
 
-    }
 
 
     public long InsertUser(UserObject userObject){
@@ -71,16 +70,20 @@ public class DBArguments {
         return cursor;
     }
 
-    public ArrayList<FoodObject> getallfoods(){
+    public ArrayList<FoodObject> getallfoods(String date){
         ArrayList<FoodObject> arrayList2 = new ArrayList<>();
         Cursor foodpicker = selectFood_Test();
         int i = 0;
         foodpicker.moveToFirst();
         while (!foodpicker.isAfterLast()){
-            arrayList2.add(i, new FoodObject(foodpicker.getString(1),foodpicker.getInt(2), foodpicker.getInt(3), foodpicker.getString(4)));
-            System.out.println("Det virker");
-            i++;
-            foodpicker.moveToNext();
+            if(foodpicker.getString(4).contains(date)){
+                arrayList2.add(i, new FoodObject(foodpicker.getString(1),foodpicker.getInt(2), foodpicker.getInt(3), foodpicker.getString(4)));
+                System.out.println("Det virker " + date + " " + foodpicker.getString(4));
+                i++;
+                foodpicker.moveToNext();
+            }else {
+                foodpicker.moveToNext();
+            }
         }
         return arrayList2;
     }
@@ -104,11 +107,15 @@ public class DBArguments {
         return sqLiteDatabase.insert(DBHandler.TABLE_EAT,null,content);
     }
 
-    public int callFoo (){
+    public int callFoo (String string){
         int temp;
-        temp = dbHandler.foo(sqLiteDatabase);
+        temp = dbHandler.foo(sqLiteDatabase, string);
+        FoodActivity.foodOverview.notifyDataSetChanged();
+
         return temp;
+
     }
+
 
 
 }

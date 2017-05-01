@@ -30,7 +30,7 @@ Button mainbutton;
 
         Cursor cursor = data.selectUser();
         //data.DeleteDatabase();
-        data.foo();
+        //data.foo();
 
 
         mainbutton = (Button) findViewById(R.id.mainbutton);

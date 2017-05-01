@@ -5,9 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -98,17 +96,14 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
-    public int  foo(SQLiteDatabase db){
+    public int  foo(SQLiteDatabase db, String stringdate){
         Cursor cursor = db.rawQuery("SELECT calorie  FROM  foodTable ",null);
         Cursor food_cursor = db.rawQuery("SELECT * FROM foodTable",null);
 
         Cursor user_age_cusor = db.rawQuery("SELECT age FROM userTable",null);
         Cursor user_gender_cursor = db.rawQuery("SELECT gender FROM userTable",null);
 
-        final SimpleDateFormat formatdate = new SimpleDateFormat("dd/MM/yyyy");
         String date = "";
-        Calendar calendar = Calendar.getInstance();
-        String today = formatdate.format(calendar.getTime());
 
 
 
@@ -116,7 +111,7 @@ public class DBHandler extends SQLiteOpenHelper {
         int sum = 0;
         if (food_cursor.moveToFirst()){
             do{
-                if(food_cursor.getString(food_cursor.getColumnIndex(FOOD_DATE)).contains(today)) {
+                if(food_cursor.getString(food_cursor.getColumnIndex(FOOD_DATE)).contains(stringdate)) {
 
                     String data = food_cursor.getString(food_cursor.getColumnIndex(FOOD_CALORIE));
                     int kat = Integer.parseInt(data);

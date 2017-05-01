@@ -19,10 +19,10 @@ DBArguments dbArguments;
 
 
 
-        int kat = data.callFoo();
-        System.out.println(kat);
+       // int kat = data.callFoo();
+        //System.out.println(kat);
 
-        eatentoday.setText(kat+""+"cal");
+       // eatentoday.setText(kat+""+"cal");
 
         //eatentoday.setText(dbArguments.callFoo()+"");
 
