@@ -18,7 +18,8 @@ KalorieKounter comes with its recommendation to what you can improve to get heal
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="16dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView5"
@@ -26,6 +27,7 @@ KalorieKounter comes with its recommendation to what you can improve to get heal
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
         android:text="This is what you have consumed for the day:"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="18dp"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true" />
@@ -48,6 +50,7 @@ KalorieKounter comes with its recommendation to what you can improve to get heal
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
         android:textSize="18dp"
+        android:textColor="@android:color/holo_blue_dark"
         android:text="Here you can see what you can improve:" />
 
     <TextView
@@ -56,6 +59,7 @@ KalorieKounter comes with its recommendation to what you can improve to get heal
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView9"
         android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_dark"
         android:layout_marginTop="24dp"
         android:text=""
         android:textSize="20dp"/>

@@ -110,7 +110,7 @@ public class DBArguments {
     public int[] callFoo (String string){
         int[] temp;
         temp = dbHandler.foo(sqLiteDatabase, string);
-        FoodActivity.foodOverview.notifyDataSetChanged();
+//        FoodActivity.foodOverview.notifyDataSetChanged();
 
         return temp;
 
