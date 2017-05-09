@@ -78,7 +78,6 @@ public class DBArguments {
         while (!foodpicker.isAfterLast()){
             if(foodpicker.getString(4).contains(date)){
                 arrayList2.add(i, new FoodObject(foodpicker.getString(1),foodpicker.getInt(2), foodpicker.getInt(3), foodpicker.getString(4)));
-                System.out.println("Det virker " + date + " " + foodpicker.getString(4));
                 i++;
                 foodpicker.moveToNext();
             }else {

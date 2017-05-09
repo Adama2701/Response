@@ -25,13 +25,13 @@ DBArguments dbArguments;
 
         final DBArguments data = new DBArguments(this);
 
-        int[] kat = data.callFoo(date);
+        int[] dater = data.callFoo(date);
 
 
 
 
-        eatentoday.setText(kat[0]+" "+"cal");
-        improvement.setText(kat[1] + " cal");
+        eatentoday.setText(dater[0]+" "+"cal");
+        improvement.setText(dater[1] + " cal");
 
         //eatentoday.setText(dbArguments.callFoo()+"");
 

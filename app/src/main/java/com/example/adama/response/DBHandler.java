@@ -115,8 +115,8 @@ public class DBHandler extends SQLiteOpenHelper {
                 if(food_cursor.getString(food_cursor.getColumnIndex(FOOD_DATE)).contains(stringdate)) {
 
                     String data = food_cursor.getString(food_cursor.getColumnIndex(FOOD_CALORIE));
-                    int kat = Integer.parseInt(data);
-                    a.add(kat);
+                    int pol = Integer.parseInt(data);
+                    a.add(pol);
                     System.out.println(data);
                 }
 
@@ -130,7 +130,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
 
 
-        System.out.println("KATTEN KENNETHS DATO ER : " + date);
         food_cursor.close();
 
         List<Integer> user_age_list = new ArrayList<Integer>();
@@ -166,7 +165,6 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         user_gender_cursor.close();
 
-       System.out.println("SUMMEN ER :" + sum);
        if (age < 9 && sum <= 1200 && gender.matches("Female"))
        {
            result[1] = 1200 - result[0];
