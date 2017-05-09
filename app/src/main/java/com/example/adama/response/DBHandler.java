@@ -8,10 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Adama on 4/4/2017.
- */
-
 public class DBHandler extends SQLiteOpenHelper {
 
 
@@ -117,7 +113,6 @@ public class DBHandler extends SQLiteOpenHelper {
                     String data = food_cursor.getString(food_cursor.getColumnIndex(FOOD_CALORIE));
                     int pol = Integer.parseInt(data);
                     a.add(pol);
-                    System.out.println(data);
                 }
 
                 }while(food_cursor.moveToNext());

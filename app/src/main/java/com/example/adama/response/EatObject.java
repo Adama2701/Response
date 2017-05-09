@@ -1,8 +1,5 @@
 package com.example.adama.response;
 
-/**
- * Created by adama on 25-04-2017.
- */
 
 public class EatObject {
 

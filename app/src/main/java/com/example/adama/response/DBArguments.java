@@ -94,7 +94,6 @@ public class DBArguments {
         if(cursor !=null){
             cursor.moveToFirst();
         }
-        System.out.println(cursor);
         return cursor;
     }
 
@@ -109,7 +108,7 @@ public class DBArguments {
     public int[] callFoo (String string){
         int[] temp;
         temp = dbHandler.foo(sqLiteDatabase, string);
-//        FoodActivity.foodOverview.notifyDataSetChanged();
+
 
         return temp;
 

@@ -9,10 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by filipgusak on 18/04/2017.
- */
-
 public class FoodOverview extends RecyclerView.Adapter<FoodOverview.adapterclass> {
 
     private itemClickCallback callback;

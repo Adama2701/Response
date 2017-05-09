@@ -20,10 +20,6 @@ Button complete;
     String timeholder;
     Button viewfoodlist;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -14,11 +14,6 @@ public class Startactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startactivity);
 
-
-        //dbArguments = new DBArguments(this);
-        //dbArguments.DeleteDatabase();
-        //dbArguments.InsertFoodTest(new FoodObject(1, "hej", 2, 2));
-
         proceed = (Button) findViewById(R.id.proceed);
 
 

@@ -1,9 +1,5 @@
 package com.example.adama.response;
 
-/**
- * Created by Adama on 4/4/2017.
- */
-
 public class UserObject {
     // User information
     private int id;

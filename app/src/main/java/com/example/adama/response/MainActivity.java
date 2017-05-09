@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity
 {
-Button mainbutton;
+    Button mainbutton;
     EditText editName;
     EditText sexEdit;
     EditText age;
@@ -22,23 +22,16 @@ Button mainbutton;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       final DBArguments data = new DBArguments(this);
-
-
-
-
+        final DBArguments data = new DBArguments(this);
 
         Cursor cursor = data.selectUser();
-        //data.DeleteDatabase();
-        //data.foo();
-
 
         mainbutton = (Button) findViewById(R.id.mainbutton);
         editName = (EditText) findViewById(R.id.editName);
         sexEdit = (EditText) findViewById(R.id.sexedit);
         age = (EditText) findViewById(R.id.age);
 
-        //System.out.println(cursor.getCount());
+
         cursor.moveToFirst();
         if (cursor.getCount()>0){
             hasUser = true;
